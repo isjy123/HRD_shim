@@ -45,7 +45,7 @@
 </head>
 <body>
 	<h2 align="center">홈쇼핑 회원등록</h2>
-	<form action="" id="registerform">
+	<form action="insert.jsp" id="registerform">
 		<table align="center" border="1">
 			<tr>
 				<td align="center">회원번호(자동발생)</td>
@@ -57,6 +57,12 @@
 				<td align="center">회원이름</td>
 				<td>
 				<input type="text" name="custname" id="custname"/>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">주소</td>
+				<td>
+				<input type="text" name="address" id="address"/>
 				</td>
 			</tr>
 			<tr>
@@ -95,6 +101,7 @@
 <script>
 	//등록버튼을 클릭하면 
 	document.getElementById("registerbtn").addEventListener("click", function(e){
+		
 		//회원 성명 입력란 찾아오기
 		var n = document.getElementById('custname')
 		if(n.value.trim().length ==0){
@@ -103,31 +110,86 @@
 			return;
 		}
 		
+		var a = document.getElementById('address')
+		if(a.value.trim().length==0){
+			alert("주소가 입력되지 않음")
+			n.focus();
+			return;
+		}
+		
 		var p = document.getElementById('phone')
 		if(p.value.trim().length ==0){
 			alert("전화번호가 입력되지 않았음");
-			n.foucs();
+			p.foucs();
 			return;
 		}
 		
 		var g = document.getElementById('grade')
 		if(g.value.trim().length ==0){
 			alert("고객등급이 입력되지 않음");
-			n.foucs();
+			g.foucs();
+			return;
+		}
+		
+		var j = document.getElementById('joindate')
+		if(j.value.trim() == 0 ){
+			alert("날짜가 입력되지 않음");
+			j.focus();
 			return;
 		}
 		
 		var c = document.getElementById('city')
 		if(c.value.trim().length ==0){
 			alert("도시코드가 입력되지 않았음");
-			n.foucs();
+			c.foucs();
 			return;
 		}
+		//폼의 데이터 전송
+		//document.getElementById("registerform").submit();
+		
+		
+		
+		//폼의 데이터를 가지고 insert.jsp 파일에 ajax 요청
+		//ajax 객체 생성
+		var request = new XMLHttpRequest();
+		
+		var url = "insert.jsp?"
+				
+		//URL에 파라미터 붙이기
+		url += "custno=" + document.getElementById("custno").value;
+		url += "&custname=" + n.value;
+		url += "&phone=" + p.value;
+		url += "&address=" + a.value;
+		url += "&joindate=" + j.value;
+		url += "&grade=" + g.value;
+		url += "&city=" + c.value;
+		
+		//ajax 요청을 생성 
+		request.open('GET', encodeURI(url));
+		request.send('');
+		
+		//요청 성공시 수행할 내용
+		request.onreadystatechange = function(){
+			if(request.readyState == 4){
+				alert("회원 등록이 완료되었습니다.");
+			}
+		}
+		
+		
+		
+		
+		
 	})
+	
+	
+	
+	
+	/*
 	//조회버튼 클릭
 	document.getElementById("selectbtn").addEventListener("click", function(e){
 		
 	})
-	
+	*/
+
 </script>
 </html>
