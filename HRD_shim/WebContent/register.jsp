@@ -99,6 +99,18 @@
 	</form>
 </body>
 <script>
+	//조회버튼 클릭시
+	document.getElementById("selectbtn").addEventListener("click", function(e){
+		//페이지 이동 
+		location.href = "list.jsp";
+		
+	});
+
+
+
+
+
+
 	//등록버튼을 클릭하면 
 	document.getElementById("registerbtn").addEventListener("click", function(e){
 		
