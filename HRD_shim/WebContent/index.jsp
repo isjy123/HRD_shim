@@ -14,9 +14,11 @@
 		<a href ="" target="content">회원 매출 조회</a>&nbsp;&nbsp;
 		<a href ="main.jsp" target="content">홈으로</a>&nbsp;&nbsp;
 	</nav>
+	
 	<section>
 		<iframe width="100%" height="300px" src="main.jsp" name="content" id="content"></iframe>
 	</section>
+	
 	<footer>HRDKOREA </footer>
 </body>
 </html>

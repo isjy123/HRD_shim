@@ -54,9 +54,11 @@
 				rs.getString("city") + "</td>");
 		out.println("</tr>");
 	}
+	
 	rs.close();
 	pstmt.close();
 	con.close();
+	
 	%>
 	</table>
 </body>
