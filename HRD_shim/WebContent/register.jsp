@@ -164,6 +164,8 @@
 		url += "&grade=" + g.value;
 		url += "&city=" + c.value;
 		
+		alert(url);
+		
 		//ajax 요청을 생성 
 		request.open('GET', encodeURI(url));
 		request.send('');
@@ -180,16 +182,7 @@
 		
 		
 	})
-	
-	
-	
-	
-	/*
-	//조회버튼 클릭
-	document.getElementById("selectbtn").addEventListener("click", function(e){
-		
-	})
-	*/
+
 
 </script>
 </html>
