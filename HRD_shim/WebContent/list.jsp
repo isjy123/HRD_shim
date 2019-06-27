@@ -30,8 +30,8 @@
 	ResultSet rs = pstmt.executeQuery();
 	while(rs.next()){
 		out.println("<tr>");
-		out.println("<td align='center'>" + 
-			rs.getInt("custno") + "</td>");
+		out.println("<td align='center'><a href='detail.jsp?custno="+rs.getInt("custno")+ "'>" + 
+			rs.getInt("custno") + "</a></td>");
 		out.println("<td align='center'>" + 
 			rs.getString("custname") + "</td>");
 		out.println("<td align='center'>" + 
@@ -63,4 +63,4 @@
 	%>
 	</table>
 </body>
-</html>tml>
+</html>
